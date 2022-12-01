@@ -26,14 +26,27 @@ In case the Elves get hungry and need extra snacks, they need to know which Elf 
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
+
+
+
 =end
 
 def read_file(filename)
   arr = []
+  chunk = []
   File.readlines(filename).each do |line|
-    arr << line
+    chunk = []
+      if line == "\n"
+        next
+      else
+        chunk << line
+      end
+      arr << chunk
   end
+ 
   return arr 
 end
 
-p read_file('2022/D1.txt')
+master_array = read_file('2022/D1.txt')
+
+p master_array
